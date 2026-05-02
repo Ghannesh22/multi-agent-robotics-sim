@@ -6,7 +6,7 @@ This first milestone intentionally avoids ROS, Gazebo, PyBullet, Unity, and deep
 
 ## Current Milestone
 
-Phase 1.0 and Phase 1.1 are complete.
+Phase 1 is complete.
 
 Implemented in Phase 1.0:
 
@@ -27,9 +27,38 @@ Completed in Phase 1.1:
 - Cleanup needs documented in `docs/code_review.md`.
 - Next milestone clarified.
 
-Next step:
+Completed in Phase 1.2:
 
-- Phase 1.2: improve the text-based visualization while keeping the simulator simple.
+- Cleaner text-based grid rendering.
+- Clear cell borders.
+- Distinct symbols for agents, goals, obstacles, and empty cells.
+- Step number and agent position display.
+- Legend included with each rendered grid.
+
+Completed in Phase 1.3:
+
+- Simple Python scenario configuration helpers.
+- Reusable scenario builders for grid dimensions, agents, goals, and obstacles.
+- Named scenarios: `simple`, `narrow_corridor`, and `crossing_paths`.
+- Demo scenario selection from the command line.
+
+Completed in Phase 1.4:
+
+- Simple non-learning experiment logging.
+- Final run summaries for scenario name, result, total steps, reached goals, blocked moves, and final positions.
+- Blocked move counts from existing step event data.
+
+Completed in Phase 1.5:
+
+- Final README and roadmap polish.
+- Phase 1 completion summary in `docs/phase_1_summary.md`.
+- Full test and demo verification across all starter scenarios.
+
+Next step after Phase 1:
+
+- Phase 2: Rule-Based Coordination.
+
+Phase 2 should start from this stable Phase 1 foundation, without adding reinforcement learning yet.
 
 ## Run the Demo
 
@@ -46,6 +75,26 @@ $env:PYTHONPATH="src"
 python -m marlsim.demos.basic_grid
 ```
 
+To choose a scenario:
+
+```powershell
+$env:PYTHONPATH="src"
+python -m marlsim.demos.basic_grid --scenario narrow_corridor
+python -m marlsim.demos.basic_grid --scenario crossing_paths
+```
+
+The demo prints a plain-text grid after each step. The renderer uses these symbols:
+
+- `A#`: agent, such as `A1` or `A2`.
+- `A#*`: agent currently on its goal.
+- `G#`: goal for the matching agent.
+- `G+`: shared goal cell.
+- `###`: obstacle.
+- `.`: empty cell.
+
+Each render also shows the step number, a legend, and each agent's current position and goal.
+At the end of the run, the demo prints a final run summary with total steps, success or failure, reached goals, blocked moves, and final agent positions.
+
 ## Run Tests
 
 ```powershell
@@ -53,18 +102,24 @@ $env:PYTHONPATH="src"
 python -m unittest discover tests
 ```
 
+## Phase 1 Summary
+
+See [docs/phase_1_summary.md](docs/phase_1_summary.md) for a concise review of what Phase 1 achieved, available scenarios, logged metrics, out-of-scope items, and why Phase 2 comes next.
+
 ## Project Direction
 
 The planned progression is:
 
-1. Basic grid-world simulation and documentation review.
-2. Rule-based coordination and path planning.
-3. Gymnasium-style reinforcement learning interface.
-4. Single-agent RL baseline.
-5. Multi-agent RL.
-6. Communication between agents.
-7. Optional physics-based simulator upgrade.
-8. Portfolio demo and final report.
+1. Basic grid-world simulation, documentation review, visualization, and scenario configuration.
+2. Experiment logging in Phase 1.4.
+3. Final Phase 1 polish and stabilization in Phase 1.5.
+4. Rule-based coordination and path planning.
+5. Gymnasium-style reinforcement learning interface.
+6. Single-agent RL baseline.
+7. Multi-agent RL.
+8. Communication between agents.
+9. Optional physics-based simulator upgrade.
+10. Portfolio demo and final report.
 
 See [docs/project_plan.md](docs/project_plan.md) for the full roadmap.
 

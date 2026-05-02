@@ -1,16 +1,33 @@
 from __future__ import annotations
 
+import argparse
+
 from marlsim.agents import ShortestPathAgent
 from marlsim.core.environment import GridWorldEnv
-from marlsim.scenarios.simple import two_agent_obstacle_course
+from marlsim.experiments import ExperimentLogger, format_run_summary
+from marlsim.scenarios import get_scenario, scenario_names
 from marlsim.visualization.console_renderer import ConsoleRenderer
 
 
+def _parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Run a grid-world scenario demo.")
+    parser.add_argument(
+        "--scenario",
+        choices=scenario_names(),
+        default="simple",
+        help="Scenario to run.",
+    )
+    return parser.parse_args()
+
+
 def main() -> None:
-    env = GridWorldEnv(two_agent_obstacle_course())
+    args = _parse_args()
+    env = GridWorldEnv(get_scenario(args.scenario))
     renderer = ConsoleRenderer()
+    experiment = ExperimentLogger(args.scenario)
     policies = {agent_id: ShortestPathAgent() for agent_id in env.agents}
 
+    print(f"Scenario: {args.scenario}")
     print("Initial state")
     print(renderer.render(env))
     print()
@@ -27,14 +44,17 @@ def main() -> None:
             for agent_id, agent in env.agents.items()
         }
         result = env.step(actions)
+        experiment.record_step(result)
 
-        print(f"Step {result.step_count}: " + ", ".join(f"{k}={v.value}" for k, v in actions.items()))
         print(renderer.render(env))
+        action_summary = ", ".join(
+            f"{agent_id}={action.value}" for agent_id, action in actions.items()
+        )
+        print(f"Actions: {action_summary}")
         print()
 
         if result.terminated:
-            reached = ", ".join(sorted(result.reached_goals)) or "none"
-            print(f"Terminated after {result.step_count} steps. Reached goals: {reached}")
+            print(format_run_summary(experiment.summary()))
             break
 
 

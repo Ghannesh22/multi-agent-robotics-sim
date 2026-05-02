@@ -34,15 +34,42 @@ Status: completed.
 
 ### Phase 1.2: Better Text-Based Visualization
 
-Status: next.
+Status: completed.
 
 - Improve the readability of the existing text output.
 - Keep visualization lightweight and beginner-friendly.
 - Do not add complex graphics before simulation rules are stable.
 
+### Phase 1.3: Scenario Configuration
+
+Status: completed.
+
+- Make scenarios easier to define, load, and compare.
+- Keep scenario configuration separate from environment logic.
+- Preserve the current grid-world mechanics while making demo inputs more flexible.
+- Add reusable scenario builders and named demo scenarios.
+
+### Phase 1.4: Experiment Logging
+
+Status: completed.
+
+- Add lightweight experiment logging for demo and scenario runs.
+- Record scenario name, step count, agent outcomes, and basic run metadata.
+- Keep logging simple and text-based; do not introduce databases or dashboards.
+- Print final run summaries from the demo.
+
+### Phase 1.5: Final Phase 1 Polish And Stabilization
+
+Status: completed.
+
+- Confirm Phase 1 is stable before starting coordination work.
+- Review scenarios, demos, tests, and documentation together.
+- Reserve final cleanup, naming consistency, and polish for this milestone.
+- Add a concise Phase 1 completion summary.
+
 ### Phase 2: Rule-Based Coordination
 
-Status: not completed. BFS and `ShortestPathAgent` exist now as Phase 1 baseline tools and as a seed for Phase 2, not as full Phase 2 completion.
+Status: next. BFS and `ShortestPathAgent` exist now as Phase 1 baseline tools and as a seed for Phase 2, not as full Phase 2 completion.
 
 - Greedy goal-seeking agent.
 - Breadth-first shortest-path agent.
@@ -109,7 +136,7 @@ Not started.
 
 Build a 2D grid-world simulator where two agents can move step-by-step toward goals while avoiding obstacles and collisions.
 
-This milestone is implemented as the initial project slice. BFS and `ShortestPathAgent` are already present as baseline tools and as a seed for later Phase 2 coordination work. The next step is Phase 1.2: better text-based visualization.
+This milestone is implemented as the initial project slice. BFS and `ShortestPathAgent` are already present as baseline tools and as a seed for later Phase 2 coordination work. Phase 1 is complete. The next milestone is Phase 2: rule-based coordination.
 
 ## Recommended Executive Roles
 
@@ -139,7 +166,7 @@ Use Git from the beginning so the project history tells a clear portfolio story.
 - Keep this project separate from unrelated repositories.
 - Commit the Phase 1 scaffold as the first meaningful project commit.
 - Add a GitHub remote once the repository exists.
-- Push progress at least after each milestone.
+- Push progress after each milestone.
 
 Recommended first commit:
 
@@ -203,7 +230,7 @@ Suggested labels:
 
 ### What To Push At The End Of Phase 1
 
-Push all working Phase 1.0 and Phase 1.1 materials:
+Push all working Phase 1 materials:
 
 - Core grid-world environment.
 - Multiple-agent movement.
@@ -212,6 +239,9 @@ Push all working Phase 1.0 and Phase 1.1 materials:
 - Random, greedy, and shortest-path agents.
 - BFS path planner as a Phase 1 baseline and Phase 2 seed.
 - Console renderer.
+- Named scenario configuration for simple, narrow corridor, and crossing paths demos.
+- Simple experiment summaries for demo runs.
+- Phase 1 completion summary in `docs/phase_1_summary.md`.
 - Basic runnable demo.
 - Unit tests for movement, collision rules, agents, and planning.
 - `README.md`, `docs/project_plan.md`, `docs/architecture.md`, `docs/code_review.md`, `.gitignore`, and `pyproject.toml`.
