@@ -6,7 +6,9 @@ This first milestone intentionally avoids ROS, Gazebo, PyBullet, Unity, and deep
 
 ## Current Milestone
 
-Implemented:
+Phase 1.0 and Phase 1.1 are complete.
+
+Implemented in Phase 1.0:
 
 - 2D grid-world environment.
 - Multiple agents.
@@ -14,9 +16,20 @@ Implemented:
 - Step-by-step simultaneous movement.
 - Collision prevention for walls, obstacles, same-cell conflicts, and direct swaps.
 - Basic console renderer.
-- Random and greedy rule-based agents.
+- Random, greedy, and shortest-path rule-based agents.
+- BFS path planning as a Phase 1 baseline tool and Phase 2 seed.
 - A small runnable demo.
 - Unit tests for core movement and collision behavior.
+
+Completed in Phase 1.1:
+
+- Architecture and code review.
+- Cleanup needs documented in `docs/code_review.md`.
+- Next milestone clarified.
+
+Next step:
+
+- Phase 1.2: improve the text-based visualization while keeping the simulator simple.
 
 ## Run the Demo
 
@@ -44,7 +57,7 @@ python -m unittest discover tests
 
 The planned progression is:
 
-1. Basic grid-world simulation.
+1. Basic grid-world simulation and documentation review.
 2. Rule-based coordination and path planning.
 3. Gymnasium-style reinforcement learning interface.
 4. Single-agent RL baseline.
@@ -66,4 +79,4 @@ This project should use Git from the beginning.
 - Track future work with GitHub Issues or a small TODO board.
 - Keep the README current as the project evolves.
 
-Phase 1 should be pushed with the grid-world simulator, collision rules, starter agents, BFS planner, console demo, tests, README, and docs. The recommended milestone tag is `v0.1.0-phase-1-grid-world`.
+Phase 1.0 and Phase 1.1 should be pushed with the grid-world simulator, collision rules, starter agents, BFS planner, console demo, tests, README, and docs. BFS and `ShortestPathAgent` are included as baseline tools for Phase 1 and as seeds for Phase 2 coordination work, not as full Phase 2 completion. The recommended milestone tag is `v0.1.0-phase-1-grid-world`.

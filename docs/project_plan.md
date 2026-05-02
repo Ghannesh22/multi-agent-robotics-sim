@@ -10,9 +10,9 @@ The final version should include a clean grid-world simulator, rule-based coordi
 
 ## Roadmap
 
-### Phase 1: Basic Grid-World Simulation
+### Phase 1.0: Basic Grid-World Simulation
 
-Status: started.
+Status: completed.
 
 - Multiple agents.
 - Obstacles.
@@ -20,15 +20,35 @@ Status: started.
 - Step-by-step movement.
 - Collision prevention.
 - Basic console visualization.
+- Random, greedy, and shortest-path baseline agents.
+- BFS path planning as a baseline tool.
+
+### Phase 1.1: Architecture And Code Review
+
+Status: completed.
+
+- Current architecture reviewed.
+- Cleanup needs documented.
+- Improvement suggestions recorded in `docs/code_review.md`.
+- Scope kept documentation-only with no new simulator features.
+
+### Phase 1.2: Better Text-Based Visualization
+
+Status: next.
+
+- Improve the readability of the existing text output.
+- Keep visualization lightweight and beginner-friendly.
+- Do not add complex graphics before simulation rules are stable.
 
 ### Phase 2: Rule-Based Coordination
 
-Status: started with shortest-path movement.
+Status: not completed. BFS and `ShortestPathAgent` exist now as Phase 1 baseline tools and as a seed for Phase 2, not as full Phase 2 completion.
 
 - Greedy goal-seeking agent.
 - Breadth-first shortest-path agent.
 - Same-cell conflict handling.
 - Priority conflict policy available for experiments.
+- Future coordination scenarios with bottlenecks, crossings, and narrow corridors.
 
 ### Phase 3: Gymnasium-Style Reinforcement Learning Environment
 
@@ -89,7 +109,7 @@ Not started.
 
 Build a 2D grid-world simulator where two agents can move step-by-step toward goals while avoiding obstacles and collisions.
 
-This milestone is implemented as the initial project slice. The next major step is adding path planning with BFS or A*.
+This milestone is implemented as the initial project slice. BFS and `ShortestPathAgent` are already present as baseline tools and as a seed for later Phase 2 coordination work. The next step is Phase 1.2: better text-based visualization.
 
 ## Recommended Executive Roles
 
@@ -183,18 +203,18 @@ Suggested labels:
 
 ### What To Push At The End Of Phase 1
 
-Push all working Phase 1 materials:
+Push all working Phase 1.0 and Phase 1.1 materials:
 
 - Core grid-world environment.
 - Multiple-agent movement.
 - Obstacles, goals, and step-by-step simulation.
 - Collision prevention for walls, obstacles, same-cell conflicts, direct swaps, and stationary agents.
 - Random, greedy, and shortest-path agents.
-- BFS path planner.
+- BFS path planner as a Phase 1 baseline and Phase 2 seed.
 - Console renderer.
 - Basic runnable demo.
 - Unit tests for movement, collision rules, agents, and planning.
-- `README.md`, `docs/project_plan.md`, `docs/architecture.md`, `.gitignore`, and `pyproject.toml`.
+- `README.md`, `docs/project_plan.md`, `docs/architecture.md`, `docs/code_review.md`, `.gitignore`, and `pyproject.toml`.
 
 Before pushing, verify:
 
