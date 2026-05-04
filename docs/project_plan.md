@@ -69,13 +69,13 @@ Status: completed.
 
 ### Phase 2: Rule-Based Coordination
 
-Status: next. BFS and `ShortestPathAgent` exist now as Phase 1 baseline tools and as a seed for Phase 2, not as full Phase 2 completion.
+Status: Phase 2.0 planning complete. See `docs/phase_2_plan.md`. BFS and `ShortestPathAgent` exist now as Phase 1 baseline tools and as a seed for Phase 2, not as full Phase 2 completion.
 
-- Greedy goal-seeking agent.
-- Breadth-first shortest-path agent.
-- Same-cell conflict handling.
-- Priority conflict policy available for experiments.
-- Future coordination scenarios with bottlenecks, crossings, and narrow corridors.
+- Phase 2.1: conflict-aware waiting.
+- Phase 2.2: priority-based coordination.
+- Phase 2.3: local replanning.
+- Phase 2.4: coordination metrics.
+- Phase 2.5: final Phase 2 polish, documentation, tests, scenario comparisons, and tag preparation.
 
 ### Phase 3: Gymnasium-Style Reinforcement Learning Environment
 
@@ -136,7 +136,7 @@ Not started.
 
 Build a 2D grid-world simulator where two agents can move step-by-step toward goals while avoiding obstacles and collisions.
 
-This milestone is implemented as the initial project slice. BFS and `ShortestPathAgent` are already present as baseline tools and as a seed for later Phase 2 coordination work. Phase 1 is complete. The next milestone is Phase 2: rule-based coordination.
+This milestone is implemented as the initial project slice. BFS and `ShortestPathAgent` are already present as baseline tools and as a seed for later Phase 2 coordination work. Phase 1 is complete. Phase 2.0 planning is complete, and the next implementation step is Phase 2.1: conflict-aware waiting.
 
 ## Recommended Executive Roles
 

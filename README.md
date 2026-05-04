@@ -6,7 +6,7 @@ This first milestone intentionally avoids ROS, Gazebo, PyBullet, Unity, and deep
 
 ## Current Milestone
 
-Phase 1 is complete.
+Phase 1 is complete. Phase 2.0 planning is complete and documented in `docs/phase_2_plan.md`.
 
 Implemented in Phase 1.0:
 
@@ -56,7 +56,7 @@ Completed in Phase 1.5:
 
 Next step after Phase 1:
 
-- Phase 2: Rule-Based Coordination.
+- Phase 2: Rule-Based Coordination. Phase 2.0 is planning-only; Phase 2.1 will start with conflict-aware waiting.
 
 Phase 2 should start from this stable Phase 1 foundation, without adding reinforcement learning yet.
 
@@ -105,6 +105,10 @@ python -m unittest discover tests
 ## Phase 1 Summary
 
 See [docs/phase_1_summary.md](docs/phase_1_summary.md) for a concise review of what Phase 1 achieved, available scenarios, logged metrics, out-of-scope items, and why Phase 2 comes next.
+
+## Phase 2 Plan
+
+See [docs/phase_2_plan.md](docs/phase_2_plan.md) for the rule-based coordination roadmap, planned sub-phases, success criteria, and scope exclusions.
 
 ## Project Direction
 
