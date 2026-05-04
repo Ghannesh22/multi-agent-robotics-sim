@@ -6,7 +6,7 @@ This first milestone intentionally avoids ROS, Gazebo, PyBullet, Unity, and deep
 
 ## Current Milestone
 
-Phase 1 is complete. Phase 2.0 planning is complete and documented in `docs/phase_2_plan.md`.
+Phase 2 is complete. The project now has a stable Phase 1 grid-world foundation plus Phase 2 rule-based coordination policies and comparison metrics.
 
 Implemented in Phase 1.0:
 
@@ -54,11 +54,20 @@ Completed in Phase 1.5:
 - Phase 1 completion summary in `docs/phase_1_summary.md`.
 - Full test and demo verification across all starter scenarios.
 
-Next step after Phase 1:
+Completed in Phase 2:
 
-- Phase 2: Rule-Based Coordination. Phase 2.0 is planning-only; Phase 2.1 will start with conflict-aware waiting.
+- Phase 2.0 planning roadmap in `docs/phase_2_plan.md`.
+- Conflict-aware waiting with `ConflictAwareWaitingAgent`.
+- Priority-based coordination with `PriorityBasedCoordinationAgent`.
+- Local replanning with `LocalReplanningAgent`.
+- Repeatable coordination metrics across all current scenarios.
+- Phase 2 completion summary in `docs/phase_2_summary.md`.
 
-Phase 2 should start from this stable Phase 1 foundation, without adding reinforcement learning yet.
+Next step after Phase 2:
+
+- Phase 3: Gymnasium-style reinforcement learning environment.
+
+Phase 3 should start from this stable non-learning foundation. Phase 2 intentionally did not add reinforcement learning, Gymnasium, PyBullet, ROS, physics simulation, LLM agents, or neural networks.
 
 ## Run the Demo
 
@@ -102,13 +111,22 @@ $env:PYTHONPATH="src"
 python -m unittest discover tests
 ```
 
+## Run Coordination Comparison
+
+```powershell
+$env:PYTHONPATH="src"
+python -m marlsim.demos.coordination_comparison
+```
+
+This prints a table comparing the baseline shortest-path agent, conflict-aware waiting, priority coordination, and local replanning across `simple`, `narrow_corridor`, and `crossing_paths`.
+
 ## Phase 1 Summary
 
 See [docs/phase_1_summary.md](docs/phase_1_summary.md) for a concise review of what Phase 1 achieved, available scenarios, logged metrics, out-of-scope items, and why Phase 2 comes next.
 
-## Phase 2 Plan
+## Phase 2 Summary
 
-See [docs/phase_2_plan.md](docs/phase_2_plan.md) for the rule-based coordination roadmap, planned sub-phases, success criteria, and scope exclusions.
+See [docs/phase_2_summary.md](docs/phase_2_summary.md) for a concise review of what Phase 2 achieved, the implemented coordination policies, comparison results, out-of-scope items, and why Phase 3 comes next. See [docs/phase_2_plan.md](docs/phase_2_plan.md) for the original rule-based coordination roadmap.
 
 ## Project Direction
 
@@ -138,4 +156,4 @@ This project should use Git from the beginning.
 - Track future work with GitHub Issues or a small TODO board.
 - Keep the README current as the project evolves.
 
-Phase 1.0 and Phase 1.1 should be pushed with the grid-world simulator, collision rules, starter agents, BFS planner, console demo, tests, README, and docs. BFS and `ShortestPathAgent` are included as baseline tools for Phase 1 and as seeds for Phase 2 coordination work, not as full Phase 2 completion. The recommended milestone tag is `v0.1.0-phase-1-grid-world`.
+Phase 1 was completed and tagged as `v0.2.0-phase-1-complete`. The recommended Phase 2 completion tag is `v0.3.0-phase-2-complete`.
