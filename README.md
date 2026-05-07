@@ -6,7 +6,7 @@ This first milestone intentionally avoids ROS, Gazebo, PyBullet, Unity, and deep
 
 ## Current Milestone
 
-Phase 2 is complete. The project now has a stable Phase 1 grid-world foundation plus Phase 2 rule-based coordination policies and comparison metrics.
+Phase 3 is complete. The project now has a stable Phase 1 grid-world foundation, Phase 2 rule-based coordination policies, and a Phase 3 single-agent RL-style environment wrapper around the existing `GridWorldEnv`.
 
 Implemented in Phase 1.0:
 
@@ -63,11 +63,22 @@ Completed in Phase 2:
 - Repeatable coordination metrics across all current scenarios.
 - Phase 2 completion summary in `docs/phase_2_summary.md`.
 
-Next step after Phase 2:
+Completed in Phase 3:
 
-- Phase 3: Gymnasium-style reinforcement learning environment.
+- Phase 3.0 planning roadmap in `docs/phase_3_plan.md`.
+- `SingleAgentRLEnv` wrapper around the existing `GridWorldEnv`.
+- Simple coordinate-vector observation: `(agent_x, agent_y, goal_x, goal_y)`.
+- Five integer actions mapped to the existing `Action` enum.
+- Simple documented reward function.
+- Explicit episode lifecycle, done, timeout, and info behavior.
+- Manual RL wrapper validation demo.
+- Phase 3 completion summary in `docs/phase_3_summary.md`.
 
-Phase 3 should start from this stable non-learning foundation. Phase 2 intentionally did not add reinforcement learning, Gymnasium, PyBullet, ROS, physics simulation, LLM agents, or neural networks.
+Next step after Phase 3:
+
+- Phase 4: train a single learning-controlled agent.
+
+Phase 3 intentionally did not add RL training, Gymnasium, Stable-Baselines3, PyBullet, ROS, physics simulation, multi-agent RL, or neural networks.
 
 ## Run the Demo
 
@@ -120,6 +131,15 @@ python -m marlsim.demos.coordination_comparison
 
 This prints a table comparing the baseline shortest-path agent, conflict-aware waiting, priority coordination, and local replanning across `simple`, `narrow_corridor`, and `crossing_paths`.
 
+## Run RL Wrapper Validation
+
+```powershell
+$env:PYTHONPATH="src"
+python -m marlsim.demos.rl_env_validation
+```
+
+This prints a scripted validation of the Phase 3 single-agent RL wrapper: reset, normal movement, blocked movement, goal completion, and timeout behavior. It is not RL training.
+
 ## Phase 1 Summary
 
 See [docs/phase_1_summary.md](docs/phase_1_summary.md) for a concise review of what Phase 1 achieved, available scenarios, logged metrics, out-of-scope items, and why Phase 2 comes next.
@@ -127,6 +147,10 @@ See [docs/phase_1_summary.md](docs/phase_1_summary.md) for a concise review of w
 ## Phase 2 Summary
 
 See [docs/phase_2_summary.md](docs/phase_2_summary.md) for a concise review of what Phase 2 achieved, the implemented coordination policies, comparison results, out-of-scope items, and why Phase 3 comes next. See [docs/phase_2_plan.md](docs/phase_2_plan.md) for the original rule-based coordination roadmap.
+
+## Phase 3 Summary
+
+See [docs/phase_3_summary.md](docs/phase_3_summary.md) for a concise review of what Phase 3 achieved, the RL wrapper contract, validation results, out-of-scope items, and why Phase 4 training comes next. See [docs/phase_3_plan.md](docs/phase_3_plan.md) for the original Phase 3 roadmap.
 
 ## Project Direction
 
@@ -136,7 +160,7 @@ The planned progression is:
 2. Experiment logging in Phase 1.4.
 3. Final Phase 1 polish and stabilization in Phase 1.5.
 4. Rule-based coordination and path planning.
-5. Gymnasium-style reinforcement learning interface.
+5. Gymnasium-style reinforcement learning interface, starting with a single controlled agent wrapper.
 6. Single-agent RL baseline.
 7. Multi-agent RL.
 8. Communication between agents.
@@ -156,4 +180,4 @@ This project should use Git from the beginning.
 - Track future work with GitHub Issues or a small TODO board.
 - Keep the README current as the project evolves.
 
-Phase 1 was completed and tagged as `v0.2.0-phase-1-complete`. The recommended Phase 2 completion tag is `v0.3.0-phase-2-complete`.
+Phase 1 was completed and tagged as `v0.2.0-phase-1-complete`. Phase 2 was completed and tagged as `v0.3.0-phase-2-complete`. The recommended Phase 3 completion tag is `v0.4.0-phase-3-rl-env-complete`.

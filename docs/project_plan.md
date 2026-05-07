@@ -79,13 +79,16 @@ Status: completed. See `docs/phase_2_plan.md`, `docs/phase_2_conflict_aware_wait
 
 ### Phase 3: Gymnasium-Style Reinforcement Learning Environment
 
-Not started.
+Status: completed. See `docs/phase_3_plan.md`, `docs/phase_3_observation_design.md`, `docs/phase_3_action_design.md`, `docs/phase_3_reward_design.md`, `docs/phase_3_episode_handling.md`, `docs/phase_3_manual_validation.md`, and `docs/phase_3_summary.md`.
 
-- Observation space.
-- Action space.
-- Reward function.
-- Episode reset.
-- Termination conditions.
+- Phase 3.0: RL environment planning. Completed.
+- Phase 3.1: RL wrapper skeleton around `GridWorldEnv`. Completed with `SingleAgentRLEnv`.
+- Phase 3.2: observation design. Completed with `(agent_x, agent_y, goal_x, goal_y)`.
+- Phase 3.3: action design. Completed with five integer actions mapped to `Action`.
+- Phase 3.4: reward design. Completed with simple documented reward values.
+- Phase 3.5: episode handling. Completed with explicit done, timeout, and info behavior.
+- Phase 3.6: manual validation. Completed with `marlsim.demos.rl_env_validation`.
+- Phase 3.7: final Phase 3 polish, documentation, tests, and validation. Completed.
 
 ### Phase 4: Single-Agent Reinforcement Learning Baseline
 
@@ -136,7 +139,7 @@ Not started.
 
 Build a 2D grid-world simulator where two agents can move step-by-step toward goals while avoiding obstacles and collisions.
 
-This milestone is implemented as the initial project slice. BFS and `ShortestPathAgent` are already present as baseline tools and as a seed for later coordination work. Phase 1 and Phase 2 are complete. The next milestone is Phase 3: Gymnasium-style reinforcement learning environment.
+This milestone is implemented as the initial project slice. BFS and `ShortestPathAgent` are already present as baseline tools and as a seed for later coordination work. Phase 1, Phase 2, and Phase 3 are complete. The next implementation milestone is Phase 4: single-agent reinforcement learning baseline.
 
 ## Recommended Executive Roles
 
