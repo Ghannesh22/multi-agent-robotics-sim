@@ -103,17 +103,19 @@ Status: completed. See `docs/phase_4_plan.md`, `docs/phase_4_q_learning.md`, `do
 
 ### Phase 5: Multi-Agent Reinforcement Learning
 
-Not started.
+Status: completed. See `docs/phase_5_plan.md`, `docs/phase_5_multi_agent_wrapper.md`, `docs/phase_5_independent_q_learning.md`, `docs/phase_5_cooperative_rewards.md`, `docs/phase_5_marl_evaluation.md`, `docs/phase_5_marl_demos.md`, and `docs/phase_5_summary.md`.
 
-- Multiple learning agents.
-- Shared environment.
-- Cooperation and competition.
-- Collision penalties.
-- Goal rewards.
+- Phase 5.0: MARL planning. Completed.
+- Phase 5.1: multi-agent RL wrapper. Completed with `MultiAgentRLEnv`.
+- Phase 5.2: independent Q-learning agents. Completed with decentralized Q-table training.
+- Phase 5.3: cooperative reward experiments. Completed with individual and shared reward modes.
+- Phase 5.4: MARL evaluation and metrics. Completed with learned-policy and baseline comparison helpers.
+- Phase 5.5: MARL visualization and demos. Completed with text trajectory output.
+- Phase 5.6: final Phase 5 polish, documentation, tests, demos, and tag preparation. Completed.
 
 ### Phase 6: Communication Between Agents
 
-Not started.
+Next implementation milestone.
 
 - Share position.
 - Share intent.

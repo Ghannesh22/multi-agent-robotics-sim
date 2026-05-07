@@ -6,7 +6,7 @@ This first milestone intentionally avoids ROS, Gazebo, PyBullet, Unity, and deep
 
 ## Current Milestone
 
-Phase 4 is complete. The project now has a stable grid-world foundation, rule-based coordination policies, a single-agent RL-style environment wrapper, and a first tabular Q-learning training/evaluation milestone.
+Phase 5 is complete and documented in `docs/phase_5_summary.md`. The project now has a stable grid-world foundation, rule-based coordination policies, single-agent Q-learning, and lightweight multi-agent tabular learning, evaluation, and visualization demos.
 
 Implemented in Phase 1.0:
 
@@ -85,11 +85,23 @@ Completed in Phase 4:
 - Lightweight Q-learning training, comparison, and metrics demos.
 - Phase 4 completion summary in `docs/phase_4_summary.md`.
 
-Next step after Phase 4:
+Completed in Phase 5:
 
-- Phase 5: multi-agent reinforcement learning.
+- Phase 5.0 planning roadmap in `docs/phase_5_plan.md`.
+- `MultiAgentRLEnv` wrapper around the existing `GridWorldEnv`.
+- Independent multi-agent Q-learning with one Q-table per controlled agent.
+- Individual and shared/team reward modes.
+- MARL evaluation against learned policies and rule-based baselines.
+- MARL metrics for success, timeout, blocked moves, rewards, and episode length.
+- Text trajectory visualization for learned behavior.
+- Demos showing individual reward success and shared reward failure.
+- Phase 5 completion summary in `docs/phase_5_summary.md`.
 
-Phase 4 intentionally did not add deep RL, Gymnasium, Stable-Baselines3, PyTorch, TensorFlow, PyBullet, ROS, physics simulation, multi-agent RL, communication learning, or neural networks.
+Next step after Phase 5:
+
+- Phase 6: communication between agents.
+
+Phase 5 remains tabular and lightweight. It intentionally does not add deep RL, Gymnasium, Stable-Baselines3, PyTorch, TensorFlow, RLlib, PettingZoo, PyBullet, ROS, physics simulation, communication learning, or neural networks.
 
 ## Run the Demo
 
@@ -162,6 +174,18 @@ python -m marlsim.demos.q_learning_metrics_demo
 
 These demos train a small tabular Q-learning agent, compare it with rule-based baselines, and print dependency-free training metrics and text charts.
 
+## Run MARL Demos
+
+```powershell
+$env:PYTHONPATH="src"
+python -m marlsim.demos.marl_training_demo
+python -m marlsim.demos.marl_reward_comparison
+python -m marlsim.demos.marl_evaluation_comparison
+python -m marlsim.demos.marl_visualization_demo
+```
+
+These demos train independent multi-agent Q-learning policies, compare individual and shared rewards, evaluate learned policies against baselines, and print text trajectories for learned behavior.
+
 ## Phase 1 Summary
 
 See [docs/phase_1_summary.md](docs/phase_1_summary.md) for a concise review of what Phase 1 achieved, available scenarios, logged metrics, out-of-scope items, and why Phase 2 comes next.
@@ -181,6 +205,16 @@ See [docs/phase_4_plan.md](docs/phase_4_plan.md) for the single-agent reinforcem
 ## Phase 4 Summary
 
 See [docs/phase_4_summary.md](docs/phase_4_summary.md) for a concise review of the first tabular Q-learning milestone, training/evaluation metrics, demos, out-of-scope items, and why Phase 5 comes next.
+
+## Phase 5 Plan
+
+See [docs/phase_5_plan.md](docs/phase_5_plan.md) for the multi-agent reinforcement learning plan. Phase 5 includes the multi-agent wrapper, independent Q-learning, cooperative reward modes, MARL evaluation helpers, and text trajectory demos.
+
+See [docs/phase_5_marl_evaluation.md](docs/phase_5_marl_evaluation.md) for the MARL evaluation design and comparison metrics.
+
+See [docs/phase_5_marl_demos.md](docs/phase_5_marl_demos.md) for the MARL behavior demo and trajectory output format.
+
+See [docs/phase_5_summary.md](docs/phase_5_summary.md) for a concise review of the completed multi-agent reinforcement learning milestone, experiment results, out-of-scope items, and why Phase 6 communication comes next.
 
 ## Project Direction
 
