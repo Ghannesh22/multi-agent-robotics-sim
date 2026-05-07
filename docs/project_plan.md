@@ -92,10 +92,14 @@ Status: completed. See `docs/phase_3_plan.md`, `docs/phase_3_observation_design.
 
 ### Phase 4: Single-Agent Reinforcement Learning Baseline
 
-Not started.
+Status: completed. See `docs/phase_4_plan.md`, `docs/phase_4_q_learning.md`, `docs/phase_4_training_loop.md`, `docs/phase_4_evaluation.md`, `docs/phase_4_metrics.md`, and `docs/phase_4_summary.md`.
 
-- Train one agent first.
-- Compare learned behavior with random and rule-based behavior.
+- Phase 4.0: RL training planning. Completed.
+- Phase 4.1: Q-table agent. Completed with `QLearningAgent`.
+- Phase 4.2: training loop. Completed with `train_q_learning`.
+- Phase 4.3: evaluation and comparison. Completed with random, greedy, shortest-path, and Q-learning comparison.
+- Phase 4.4: training metrics and visualization. Completed with text summaries, ASCII charts, and CSV export.
+- Phase 4.5: final Phase 4 polish, documentation, tests, and demos. Completed.
 
 ### Phase 5: Multi-Agent Reinforcement Learning
 
@@ -139,7 +143,7 @@ Not started.
 
 Build a 2D grid-world simulator where two agents can move step-by-step toward goals while avoiding obstacles and collisions.
 
-This milestone is implemented as the initial project slice. BFS and `ShortestPathAgent` are already present as baseline tools and as a seed for later coordination work. Phase 1, Phase 2, and Phase 3 are complete. The next implementation milestone is Phase 4: single-agent reinforcement learning baseline.
+This milestone is implemented as the initial project slice. BFS and `ShortestPathAgent` are already present as baseline tools and as a seed for later coordination work. Phase 1, Phase 2, Phase 3, and Phase 4 are complete. The next implementation milestone is Phase 5: multi-agent reinforcement learning.
 
 ## Recommended Executive Roles
 

@@ -6,7 +6,7 @@ This first milestone intentionally avoids ROS, Gazebo, PyBullet, Unity, and deep
 
 ## Current Milestone
 
-Phase 3 is complete. The project now has a stable Phase 1 grid-world foundation, Phase 2 rule-based coordination policies, and a Phase 3 single-agent RL-style environment wrapper around the existing `GridWorldEnv`.
+Phase 4 is complete. The project now has a stable grid-world foundation, rule-based coordination policies, a single-agent RL-style environment wrapper, and a first tabular Q-learning training/evaluation milestone.
 
 Implemented in Phase 1.0:
 
@@ -74,11 +74,22 @@ Completed in Phase 3:
 - Manual RL wrapper validation demo.
 - Phase 3 completion summary in `docs/phase_3_summary.md`.
 
-Next step after Phase 3:
+Completed in Phase 4:
 
-- Phase 4: train a single learning-controlled agent.
+- Phase 4.0 planning roadmap in `docs/phase_4_plan.md`.
+- `QLearningAgent` with tabular Q-values.
+- Epsilon-greedy exploration.
+- Single-agent Q-learning training loop.
+- Policy evaluation against random, greedy, shortest-path, and trained Q-learning policies.
+- Training metrics, text summaries, ASCII-style charts, and CSV export.
+- Lightweight Q-learning training, comparison, and metrics demos.
+- Phase 4 completion summary in `docs/phase_4_summary.md`.
 
-Phase 3 intentionally did not add RL training, Gymnasium, Stable-Baselines3, PyBullet, ROS, physics simulation, multi-agent RL, or neural networks.
+Next step after Phase 4:
+
+- Phase 5: multi-agent reinforcement learning.
+
+Phase 4 intentionally did not add deep RL, Gymnasium, Stable-Baselines3, PyTorch, TensorFlow, PyBullet, ROS, physics simulation, multi-agent RL, communication learning, or neural networks.
 
 ## Run the Demo
 
@@ -140,6 +151,17 @@ python -m marlsim.demos.rl_env_validation
 
 This prints a scripted validation of the Phase 3 single-agent RL wrapper: reset, normal movement, blocked movement, goal completion, and timeout behavior. It is not RL training.
 
+## Run Q-Learning Demos
+
+```powershell
+$env:PYTHONPATH="src"
+python -m marlsim.demos.q_learning_demo
+python -m marlsim.demos.q_learning_comparison
+python -m marlsim.demos.q_learning_metrics_demo
+```
+
+These demos train a small tabular Q-learning agent, compare it with rule-based baselines, and print dependency-free training metrics and text charts.
+
 ## Phase 1 Summary
 
 See [docs/phase_1_summary.md](docs/phase_1_summary.md) for a concise review of what Phase 1 achieved, available scenarios, logged metrics, out-of-scope items, and why Phase 2 comes next.
@@ -151,6 +173,14 @@ See [docs/phase_2_summary.md](docs/phase_2_summary.md) for a concise review of w
 ## Phase 3 Summary
 
 See [docs/phase_3_summary.md](docs/phase_3_summary.md) for a concise review of what Phase 3 achieved, the RL wrapper contract, validation results, out-of-scope items, and why Phase 4 training comes next. See [docs/phase_3_plan.md](docs/phase_3_plan.md) for the original Phase 3 roadmap.
+
+## Phase 4 Plan
+
+See [docs/phase_4_plan.md](docs/phase_4_plan.md) for the single-agent reinforcement learning plan. Phase 4.0 is planning-only and recommends tabular Q-learning before deep reinforcement learning.
+
+## Phase 4 Summary
+
+See [docs/phase_4_summary.md](docs/phase_4_summary.md) for a concise review of the first tabular Q-learning milestone, training/evaluation metrics, demos, out-of-scope items, and why Phase 5 comes next.
 
 ## Project Direction
 
@@ -180,4 +210,4 @@ This project should use Git from the beginning.
 - Track future work with GitHub Issues or a small TODO board.
 - Keep the README current as the project evolves.
 
-Phase 1 was completed and tagged as `v0.2.0-phase-1-complete`. Phase 2 was completed and tagged as `v0.3.0-phase-2-complete`. The recommended Phase 3 completion tag is `v0.4.0-phase-3-rl-env-complete`.
+Phase 1 was completed and tagged as `v0.2.0-phase-1-complete`. Phase 2 was completed and tagged as `v0.3.0-phase-2-complete`. Phase 3 was completed and tagged as `v0.4.0-phase-3-rl-env-complete`. The recommended Phase 4 completion tag is `v0.5.0-phase-4-q-learning-complete`.
