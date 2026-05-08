@@ -115,16 +115,30 @@ Status: completed. See `docs/phase_5_plan.md`, `docs/phase_5_multi_agent_wrapper
 
 ### Phase 6: Communication Between Agents
 
-Next implementation milestone.
+Status: completed. See `docs/phase_6_plan.md`, `docs/phase_6_message_design.md`, `docs/phase_6_communication_wrapper.md`, `docs/phase_6_rule_based_communication.md`, `docs/phase_6_communication_q_learning.md`, `docs/phase_6_communication_evaluation.md`, `docs/phase_6_communication_visualization.md`, and `docs/phase_6_summary.md`.
 
-- Share position.
-- Share intent.
-- Negotiate movement.
-- Compare communication vs no communication.
+- Phase 6.0: communication planning. Completed with `docs/phase_6_plan.md`.
+- Phase 6.1: communication message design. Completed with `CommunicationMessage`.
+- Phase 6.2: communication-enabled MARL wrapper. Completed with `CommunicatingMultiAgentRLEnv`.
+- Phase 6.3: rule-based communication experiments. Completed with `CommunicationAwareWaitingAgent` and `CommunicationAwarePriorityAgent`.
+- Phase 6.4: communication-aware Q-learning agents. Completed with `CommunicationAwareQLearningAgent`.
+- Phase 6.5: communication evaluation and comparison. Completed with `CommunicationEvaluationMetrics`.
+- Phase 6.6: visualization of communication behavior. Completed with text trajectory and message timeline helpers.
+- Phase 6.7: final Phase 6 polish and stabilization. Completed with `docs/phase_6_summary.md`.
+
+Initial planned message types:
+
+- Intended next move.
+- Current target.
+- Blocked status.
+- Wait signal.
+- Priority signal.
+
+Phase 6 remains lightweight and explicitly excludes natural language communication, LLM agents, transformers, deep MARL, centralized critics, graph neural networks, PyTorch, TensorFlow, RLlib, PettingZoo, ROS, and physics simulation.
 
 ### Phase 7: Physics-Based Simulation Upgrade
 
-Not started.
+Next milestone.
 
 - Move from grid-world to PyBullet or similar.
 - Use simple robot bodies.
@@ -145,7 +159,7 @@ Not started.
 
 Build a 2D grid-world simulator where two agents can move step-by-step toward goals while avoiding obstacles and collisions.
 
-This milestone is implemented as the initial project slice. BFS and `ShortestPathAgent` are already present as baseline tools and as a seed for later coordination work. Phase 1, Phase 2, Phase 3, and Phase 4 are complete. The next implementation milestone is Phase 5: multi-agent reinforcement learning.
+This milestone is implemented as the initial project slice. BFS and `ShortestPathAgent` are already present as baseline tools and as a seed for later coordination work. Phase 1, Phase 2, Phase 3, Phase 4, Phase 5, and Phase 6 are complete. The next milestone is Phase 7: physics-based simulation upgrade.
 
 ## Recommended Executive Roles
 
