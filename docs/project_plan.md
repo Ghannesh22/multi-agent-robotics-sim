@@ -138,12 +138,19 @@ Phase 6 remains lightweight and explicitly excludes natural language communicati
 
 ### Phase 7: Physics-Based Simulation Upgrade
 
-Next milestone.
+Status: setup spike started. See `docs/phase_7_plan.md` and `docs/phase_7_pybullet_setup.md`.
 
-- Move from grid-world to PyBullet or similar.
-- Use simple robot bodies.
-- Add continuous movement.
-- Add sensors.
+- Phase 7.0: physics simulation planning. Completed with `docs/phase_7_plan.md`.
+- Phase 7.1: PyBullet setup spike. Started with an optional PyBullet dependency, a minimal `PhysicsWorld`, and a DIRECT-mode setup demo.
+- Phase 7.2: single robot body. Planned.
+- Phase 7.3: obstacles and goals. Planned.
+- Phase 7.4: multi-robot physics scene. Planned.
+- Phase 7.5: physics-based demo and logging. Planned.
+- Phase 7.6: final Phase 7 polish, documentation, tests where practical, summary, and tag preparation. Planned.
+
+Phase 7 should use PyBullet first because it is Python-friendly, works on Windows, and is lightweight compared with Gazebo and ROS. Physics simulation should live separately from the existing grid-world system and should not rewrite `GridWorldEnv` or break previous phases.
+
+Phase 7 remains intentionally scoped. It excludes ROS, Gazebo, real robot deployment, deep RL, continuous-control learning, advanced sensors, camera perception, and sim-to-real transfer.
 
 ### Phase 8: Portfolio Demo
 
@@ -159,7 +166,7 @@ Not started.
 
 Build a 2D grid-world simulator where two agents can move step-by-step toward goals while avoiding obstacles and collisions.
 
-This milestone is implemented as the initial project slice. BFS and `ShortestPathAgent` are already present as baseline tools and as a seed for later coordination work. Phase 1, Phase 2, Phase 3, Phase 4, Phase 5, and Phase 6 are complete. The next milestone is Phase 7: physics-based simulation upgrade.
+This milestone is implemented as the initial project slice. BFS and `ShortestPathAgent` are already present as baseline tools and as a seed for later coordination work. Phase 1, Phase 2, Phase 3, Phase 4, Phase 5, and Phase 6 are complete. Phase 7 planning has started, Phase 7.1 adds the PyBullet setup spike, and the next milestone is Phase 7.2: single robot body.
 
 ## Recommended Executive Roles
 

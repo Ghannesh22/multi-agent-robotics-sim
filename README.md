@@ -6,7 +6,7 @@ This first milestone intentionally avoids ROS, Gazebo, PyBullet, Unity, and deep
 
 ## Current Milestone
 
-Phase 6 is complete and documented in `docs/phase_6_summary.md`. The project now has a stable grid-world foundation, rule-based coordination policies, single-agent Q-learning, lightweight multi-agent tabular learning, and explicit symbolic communication experiments with evaluation and trajectory visualization.
+Phase 6 is complete and documented in `docs/phase_6_summary.md`. Phase 7 planning has started in `docs/phase_7_plan.md`, and the Phase 7.1 PyBullet setup spike is documented in `docs/phase_7_pybullet_setup.md`. The project now has a stable grid-world foundation, rule-based coordination policies, single-agent Q-learning, lightweight multi-agent tabular learning, explicit symbolic communication experiments with evaluation and trajectory visualization, and an isolated optional physics setup path.
 
 Implemented in Phase 1.0:
 
@@ -122,11 +122,18 @@ Completed in Phase 6:
 - Message timelines, waiting traces, conflict prediction traces, and rollout summaries.
 - Phase 6 completion summary in `docs/phase_6_summary.md`.
 
-Next step after Phase 6:
+Started in Phase 7:
 
-- Phase 7: physics-based simulation upgrade.
+- Phase 7.0 planning roadmap in `docs/phase_7_plan.md`.
+- Phase 7.1 PyBullet setup spike in `docs/phase_7_pybullet_setup.md`.
+- Recommended simulator: PyBullet, introduced as an optional dependency.
+- Architecture plan for keeping physics simulation separate from the existing grid-world system.
+- Explicit boundary that Phase 7 should not rewrite `GridWorldEnv` or break previous phases.
+- Minimal `PhysicsWorld` helper for DIRECT-mode connection, plane creation, stepping, and clean disconnect.
 
 Phase 6 stayed symbolic, tabular, and dependency-free. It did not add deep RL, neural networks, PyTorch, TensorFlow, RLlib, PettingZoo, ROS, physics simulation, natural language communication, LLM agents, or changes to `GridWorldEnv` movement rules.
+
+Phase 7 physics support is optional and isolated. It has not added robots, obstacles, goals, RL integration, continuous-control learning, ROS, Gazebo, or changes to the existing grid-world behavior.
 
 ## Run the Demo
 
@@ -223,6 +230,23 @@ python -m marlsim.demos.communication_visualization_demo
 
 These demos compare a no-communication shortest-path step against a communication-aware priority step, compare independent MARL against message-augmented tabular Q-learning, print a shared evaluation table, and show readable communication trajectories with messages, waiting, priorities, predicted conflicts, actions, rewards, and blocked moves.
 
+## Run Physics Setup Demo
+
+Install the optional Phase 7 physics dependency first:
+
+```powershell
+python -m pip install -e ".[physics]"
+```
+
+Then run the DIRECT-mode PyBullet setup demo:
+
+```powershell
+$env:PYTHONPATH="src"
+python -m marlsim.demos.physics_setup_demo
+```
+
+This creates a simple PyBullet plane, runs a few simulation steps, prints a success message, and disconnects cleanly. It does not add robot bodies, obstacles, goals, or RL integration yet.
+
 ## Phase 1 Summary
 
 See [docs/phase_1_summary.md](docs/phase_1_summary.md) for a concise review of what Phase 1 achieved, available scenarios, logged metrics, out-of-scope items, and why Phase 2 comes next.
@@ -271,6 +295,12 @@ See [docs/phase_6_communication_visualization.md](docs/phase_6_communication_vis
 
 See [docs/phase_6_summary.md](docs/phase_6_summary.md) for a concise review of the completed communication milestone, experiment results, out-of-scope items, and why Phase 7 physics-based simulation comes next.
 
+## Phase 7 Plan
+
+See [docs/phase_7_plan.md](docs/phase_7_plan.md) for the physics-based simulation planning milestone. Phase 7.0 explains why moving beyond grid-world abstraction matters, recommends PyBullet as the first simulator, defines the Phase 7 subphases, proposes a separate `marlsim.physics` architecture, and keeps ROS, Gazebo, real robot deployment, deep RL, continuous-control learning, advanced sensors, camera perception, and sim-to-real transfer out of scope.
+
+See [docs/phase_7_pybullet_setup.md](docs/phase_7_pybullet_setup.md) for the Phase 7.1 PyBullet setup spike. It documents the optional physics dependency, why DIRECT mode is used first, how to run the setup demo, and what remains intentionally out of scope.
+
 ## Project Direction
 
 The planned progression is:
@@ -283,7 +313,7 @@ The planned progression is:
 6. Single-agent RL baseline.
 7. Multi-agent RL.
 8. Communication between agents.
-9. Optional physics-based simulator upgrade.
+9. Physics-based simulator upgrade.
 10. Portfolio demo and final report.
 
 See [docs/project_plan.md](docs/project_plan.md) for the full roadmap.
@@ -299,4 +329,4 @@ This project should use Git from the beginning.
 - Track future work with GitHub Issues or a small TODO board.
 - Keep the README current as the project evolves.
 
-Phase 1 was completed and tagged as `v0.2.0-phase-1-complete`. Phase 2 was completed and tagged as `v0.3.0-phase-2-complete`. Phase 3 was completed and tagged as `v0.4.0-phase-3-rl-env-complete`. The recommended Phase 4 completion tag is `v0.5.0-phase-4-q-learning-complete`.
+Phase 1 was completed and tagged as `v0.2.0-phase-1-complete`. Phase 2 was completed and tagged as `v0.3.0-phase-2-complete`. Phase 3 was completed and tagged as `v0.4.0-phase-3-rl-env-complete`. The recommended Phase 4 completion tag is `v0.5.0-phase-4-q-learning-complete`. Phase 6 is complete; Phase 7.0 planning has started and Phase 7.1 adds the first optional PyBullet setup spike.
